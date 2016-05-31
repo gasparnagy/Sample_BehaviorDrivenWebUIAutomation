@@ -24,7 +24,7 @@ namespace BehaviorDrivenWebUIAutomation.UITests
             driver.FindElement(By.Id("Body")).SendKeys("With some details");
             driver.FindElement(By.Id("submitask")).Click();
             Assert.AreEqual("Home Page - SpecOverflow", driver.Title);
-            Assert.AreEqual("This is a question", driver.FindElement(By.XPath("//ul[@id='questions']/li[3]/div/div[3]/div")).Text);
+            Assert.AreEqual("This is a question", driver.FindElement(By.XPath("//ul[@id='questions']/li[last()]/div/div[3]/div")).Text);
         }
 
         [TestMethod]
@@ -56,9 +56,9 @@ namespace BehaviorDrivenWebUIAutomation.UITests
             driver.FindElement(By.Id("Body")).SendKeys("with some details");
             driver.FindElement(By.Id("submitask")).Click();
             Assert.AreEqual("Home Page - SpecOverflow", driver.Title);
-            Assert.AreEqual("Another question", driver.FindElement(By.XPath("//ul[@id='questions']/li[6]/div/div[3]/div")).Text);
-            Assert.AreEqual("0", driver.FindElement(By.XPath("//ul[@id='questions']/li[6]/div/div/span")).Text);
-            Assert.AreEqual("0", driver.FindElement(By.XPath("//ul[@id='questions']/li[6]/div/div[2]/span")).Text);
+            Assert.AreEqual("Another question", driver.FindElement(By.XPath("//ul[@id='questions']/li[last()]/div/div[3]/div")).Text);
+            Assert.AreEqual("0", driver.FindElement(By.XPath("//ul[@id='questions']/li[last()]/div/div/span")).Text);
+            Assert.AreEqual("0", driver.FindElement(By.XPath("//ul[@id='questions']/li[last()]/div/div[2]/span")).Text);
         }
     }
 }
