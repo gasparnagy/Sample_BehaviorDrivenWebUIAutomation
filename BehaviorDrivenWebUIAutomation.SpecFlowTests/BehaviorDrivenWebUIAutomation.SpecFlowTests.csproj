@@ -70,20 +70,40 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Features\Orbit.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Orbit.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\SpecOverflow.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SpecOverflow.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\StackClone.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StackClone.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepDefinitions\OrbitSteps.cs" />
+    <Compile Include="StepDefinitions\StackCloneSteps.cs" />
     <Compile Include="StepDefinitions\SpecOverflowSteps.cs" />
     <Compile Include="Support\SeleniumContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\Orbit.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Orbit.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\SpecOverflow.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>SpecOverflow.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\StackClone.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StackClone.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

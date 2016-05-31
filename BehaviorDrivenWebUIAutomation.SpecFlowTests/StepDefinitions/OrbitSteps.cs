@@ -6,12 +6,12 @@ using TechTalk.SpecFlow;
 
 namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
 {
-    [Binding, Scope(Feature = "SpecOverflow")] //HACK: normally step definitions are global and don't need to be scoped to a feature
-    public class SpecOverflowSteps
+    [Binding, Scope(Feature = "Orbit")] //HACK: normally step definitions are global and don't need to be scoped to a feature
+    public class OrbitSteps
     {
         private readonly SeleniumContext seleniumContext;
 
-        public SpecOverflowSteps(SeleniumContext seleniumContext)
+        public OrbitSteps(SeleniumContext seleniumContext)
         {
             this.seleniumContext = seleniumContext;
         }
@@ -21,7 +21,7 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
         {
             seleniumContext.Driver.Navigate().GoToUrl(seleniumContext.BaseURL + "/");
         }
-        
+
         [Then(@"the title should be '(.*)'")]
         public void ThenTheTitleShouldBe(string expectedTitle)
         {

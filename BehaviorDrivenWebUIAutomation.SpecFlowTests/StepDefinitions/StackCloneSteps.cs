@@ -6,12 +6,12 @@ using TechTalk.SpecFlow;
 
 namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
 {
-    [Binding, Scope(Feature = "SpecOverflow")] //HACK: normally step definitions are global and don't need to be scoped to a feature
-    public class SpecOverflowSteps
+    [Binding, Scope(Feature = "StackClone")] //HACK: normally step definitions are global and don't need to be scoped to a feature
+    public class StackCloneSteps
     {
         private readonly SeleniumContext seleniumContext;
 
-        public SpecOverflowSteps(SeleniumContext seleniumContext)
+        public StackCloneSteps(SeleniumContext seleniumContext)
         {
             this.seleniumContext = seleniumContext;
         }
