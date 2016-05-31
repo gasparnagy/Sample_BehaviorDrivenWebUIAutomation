@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorDrivenWebUIAutomation.UITests", "BehaviorDrivenWebUIAutomation.UITests\BehaviorDrivenWebUIAutomation.UITests.csproj", "{1386B49E-3B06-46BA-BF8C-67893A02B348}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorDrivenWebUIAutomation.SpecFlowTests", "BehaviorDrivenWebUIAutomation.SpecFlowTests\BehaviorDrivenWebUIAutomation.SpecFlowTests.csproj", "{7F97B92F-689B-47B9-B486-B7B10B32F712}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1386B49E-3B06-46BA-BF8C-67893A02B348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1386B49E-3B06-46BA-BF8C-67893A02B348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1386B49E-3B06-46BA-BF8C-67893A02B348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F97B92F-689B-47B9-B486-B7B10B32F712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F97B92F-689B-47B9-B486-B7B10B32F712}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F97B92F-689B-47B9-B486-B7B10B32F712}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F97B92F-689B-47B9-B486-B7B10B32F712}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
