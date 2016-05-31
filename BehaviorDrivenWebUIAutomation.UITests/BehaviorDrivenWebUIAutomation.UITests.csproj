@@ -60,6 +60,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="OrbitTests.cs" />
     <Compile Include="SeleniumTestBase.cs" />
     <Compile Include="SpecOverflowTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
