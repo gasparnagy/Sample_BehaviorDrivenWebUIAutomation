@@ -29,6 +29,7 @@ namespace BehaviorDrivenWebUIAutomation.UITests
             driver.FindElement(By.Id("ctl00_Orbit_Content_PasswordTextBox")).SendKeys("admin");
             driver.FindElement(By.Name("ctl00$Orbit_Content$ctl04")).Click();
             Assert.AreEqual("Orbit", driver.Title);
+            Assert.IsTrue(driver.Url.EndsWith("/ProjectOverview.aspx"));
             Assert.AreEqual("admin", driver.FindElement(By.CssSelector("span.loggedInUserName")).Text);
             driver.FindElement(By.LinkText("Logout:")).Click();
             driver.FindElement(By.CssSelector("span.rmText")).Click();
