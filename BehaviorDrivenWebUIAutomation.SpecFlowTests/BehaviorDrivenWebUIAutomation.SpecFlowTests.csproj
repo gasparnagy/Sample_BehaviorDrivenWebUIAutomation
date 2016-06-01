@@ -82,8 +82,10 @@
     <Compile Include="Concepts\ConceptFactory.cs" />
     <Compile Include="Concepts\IUiConcept.cs" />
     <Compile Include="Concepts\LocatorConventions.cs" />
+    <Compile Include="Concepts\Menu.cs" />
     <Compile Include="Concepts\RadioButtons.cs" />
     <Compile Include="Concepts\TextBox.cs" />
+    <Compile Include="Concepts\WebDriverExtensions.cs" />
     <Compile Include="Features\Orbit.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
