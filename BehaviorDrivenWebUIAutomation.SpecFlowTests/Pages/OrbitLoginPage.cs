@@ -13,19 +13,14 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Pages
     {
         private readonly SeleniumContext seleniumContext;
 
-        [FindsBy(How = How.Custom, CustomFinderType = typeof(OrbitTableFieldLocator))]
         public IWebElement UserName { get; set; }
-
-        [FindsBy(How = How.Custom, CustomFinderType = typeof(OrbitTableFieldLocator))]
         public IWebElement Password { get; set; }
-
-        [FindsBy(How = How.Custom, CustomFinderType = typeof(OrbitButtonLocator))]
         public IWebElement LoginButton { get; set; }
 
         public OrbitLoginPage(SeleniumContext seleniumContext)
         {
             this.seleniumContext = seleniumContext;
-            PageFactory.InitElements(seleniumContext.Driver, this);
+            PageFactory.InitElements(seleniumContext.Driver, this, new OrbitDecorator());
         }
 
         public void Login(string userName, string password)

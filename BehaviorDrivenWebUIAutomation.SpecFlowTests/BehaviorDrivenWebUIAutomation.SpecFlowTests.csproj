@@ -94,6 +94,7 @@
       <DependentUpon>StackClone.feature</DependentUpon>
     </Compile>
     <Compile Include="Pages\OrbitButtonLocator.cs" />
+    <Compile Include="Pages\OrbitDecorator.cs" />
     <Compile Include="Pages\OrbitLoginPage.cs" />
     <Compile Include="Pages\OrbitTableFieldLocator.cs" />
     <Compile Include="Pages\SpecOverflowAskPage.cs" />
