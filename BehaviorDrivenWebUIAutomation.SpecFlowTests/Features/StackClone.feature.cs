@@ -66,6 +66,88 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Features
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("The application can be loaded")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StackClone")]
+        public virtual void TheApplicationCanBeLoaded()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The application can be loaded", ((string[])(null)));
+#line 3
+this.ScenarioSetup(scenarioInfo);
+#line 4
+ testRunner.When("I navigate to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 5
+ testRunner.Then("the title should be \'Stackoverflow | Stamplay app\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("New questions should be added to the question list")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StackClone")]
+        public virtual void NewQuestionsShouldBeAddedToTheQuestionList()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("New questions should be added to the question list", ((string[])(null)));
+#line 7
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Body"});
+            table1.AddRow(new string[] {
+                        "New question",
+                        "This is what i need"});
+#line 8
+ testRunner.When("I ask a new question with", ((string)(null)), table1, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Views",
+                        "Votes"});
+            table2.AddRow(new string[] {
+                        "New question",
+                        "0",
+                        "0"});
+#line 11
+ testRunner.Then("the question should appear in the question list with todays date as", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("The details of the question can be accessed from the question list")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StackClone")]
+        public virtual void TheDetailsOfTheQuestionCanBeAccessedFromTheQuestionList()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The details of the question can be accessed from the question list", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Body"});
+            table3.AddRow(new string[] {
+                        "New question",
+                        "This is what i need"});
+#line 16
+ testRunner.Given("there is a question added with", ((string)(null)), table3, "Given ");
+#line 19
+ testRunner.When("I navigate to the question details from the main page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Body",
+                        "Votes"});
+            table4.AddRow(new string[] {
+                        "New question",
+                        "This is what i need",
+                        "0"});
+#line 20
+ testRunner.Then("the question details should be visible", ((string)(null)), table4, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

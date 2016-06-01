@@ -40,5 +40,73 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
 
             seleniumContext.Driver.Title.Should().Be(expectedTitle);
         }
+
+        // define a class that represents the table structure
+        class QuestionData
+        {
+            public string Title { get; set; }
+            public string Body { get; set; }
+            public int Views { get; set; }
+            public int Votes { get; set; }
+        }
+
+        [When(@"I ask a new question with")]
+        public void WhenIAskANewQuestionWith(Table table)
+        {
+            // convert the table to an instance of the class with CreateInstance<T>();
+            var question = table.CreateInstance<QuestionData>();
+
+            seleniumContext.Driver.Navigate().GoToUrl(seleniumContext.BaseURL + "/");
+            seleniumContext.Driver.FindElement(By.LinkText("Ask Question")).Click();
+            seleniumContext.Driver.FindElement(By.Id("Title")).Clear();
+            seleniumContext.Driver.FindElement(By.Id("Title")).SendKeys(question.Title);
+            seleniumContext.Driver.FindElement(By.Id("Body")).Clear();
+            seleniumContext.Driver.FindElement(By.Id("Body")).SendKeys(question.Body);
+            seleniumContext.Driver.FindElement(By.Id("submitask")).Click();
+        }
+
+        [Then(@"the question should appear at the end of the question list as")]
+        public void ThenTheQuestionShouldAppearAtTheEndOfTheQuestionListAs(Table table)
+        {
+            var expectedQuestion = table.CreateInstance<QuestionData>();
+
+            Assert.AreEqual("Home Page - SpecOverflow", seleniumContext.Driver.Title);
+            Assert.AreEqual(expectedQuestion.Title, seleniumContext.Driver.FindElement(By.XPath("//ul[@id='questions']/li[last()]/div/div[3]/div")).Text);
+        }
+
+        [Given(@"the following questions are registered")]
+        public void GivenTheFollowingQuestionsAreRegistered(Table table)
+        {
+            //NOP: these are already in the database for now
+        }
+
+        [When(@"I go to the home page")]
+        public void WhenIGoToTheHomePage()
+        {
+            seleniumContext.Driver.Navigate().GoToUrl(seleniumContext.BaseURL + "/");
+        }
+
+        [Then(@"the following questions should be displayed in this order")]
+        public void ThenTheFollowingQuestionsShouldBeDisplayedInThisOrder(Table table)
+        {
+            var actualQuestions = new List<QuestionData>();
+            var questionLIs = seleniumContext.Driver.FindElements(By.XPath("//ul[@id='questions']/li"));
+            foreach (var questionLI in questionLIs)
+            {
+                var questionData = new QuestionData
+                {
+                    Title = questionLI.FindElement(By.XPath("div/div[3]/div")).Text,
+                    Views = int.Parse(questionLI.FindElement(By.XPath("div/div[2]/span")).Text),
+                    Votes = int.Parse(questionLI.FindElement(By.XPath("div/div[1]/span")).Text)
+                };
+                //HACK: we skip the questions with 0 view count to avoid the data entered by the other scenarios
+                if (questionData.Views == 0)
+                    continue;
+                actualQuestions.Add(questionData);
+            }
+
+            table.CompareToSet(actualQuestions);
+        }
+
     }
 }

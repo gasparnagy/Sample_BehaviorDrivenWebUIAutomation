@@ -66,6 +66,106 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Features
         {
             testRunner.CollectScenarioErrors();
         }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("The application can be loaded")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecOverflow")]
+        public virtual void TheApplicationCanBeLoaded()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The application can be loaded", ((string[])(null)));
+#line 3
+this.ScenarioSetup(scenarioInfo);
+#line 4
+ testRunner.When("I navigate to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 5
+ testRunner.Then("the title should be \'Home Page - SpecOverflow\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("New questions should be added to the question list")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecOverflow")]
+        public virtual void NewQuestionsShouldBeAddedToTheQuestionList()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("New questions should be added to the question list", ((string[])(null)));
+#line 7
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Body"});
+            table1.AddRow(new string[] {
+                        "New question",
+                        "This is what i need"});
+#line 8
+ testRunner.When("I ask a new question with", ((string)(null)), table1, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Views",
+                        "Votes"});
+            table2.AddRow(new string[] {
+                        "New question",
+                        "0",
+                        "0"});
+#line 11
+ testRunner.Then("the question should appear at the end of the question list as", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Display questions on home page ordered by views")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "SpecOverflow")]
+        public virtual void DisplayQuestionsOnHomePageOrderedByViews()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Display questions on home page ordered by views", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Views",
+                        "Votes"});
+            table3.AddRow(new string[] {
+                        "Who am I",
+                        "13",
+                        "4"});
+            table3.AddRow(new string[] {
+                        "Does this question make sense?",
+                        "8",
+                        "3"});
+            table3.AddRow(new string[] {
+                        "Yet another question",
+                        "42",
+                        "2"});
+#line 17
+ testRunner.Given("the following questions are registered", ((string)(null)), table3, "Given ");
+#line 22
+ testRunner.When("I go to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Title",
+                        "Views",
+                        "Votes"});
+            table4.AddRow(new string[] {
+                        "Yet another question",
+                        "42",
+                        "2"});
+            table4.AddRow(new string[] {
+                        "Who am I",
+                        "13",
+                        "4"});
+            table4.AddRow(new string[] {
+                        "Does this question make sense?",
+                        "8",
+                        "3"});
+#line 23
+ testRunner.Then("the following questions should be displayed in this order", ((string)(null)), table4, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
