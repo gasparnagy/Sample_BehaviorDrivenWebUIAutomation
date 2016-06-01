@@ -66,22 +66,6 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Features
         {
             testRunner.CollectScenarioErrors();
         }
-        
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("The application can be loaded")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "StackClone")]
-        public virtual void TheApplicationCanBeLoaded()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("The application can be loaded", ((string[])(null)));
-#line 3
-this.ScenarioSetup(scenarioInfo);
-#line 4
- testRunner.When("I navigate to the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 5
- testRunner.Then("the title should be \'Stackoverflow | Stamplay app\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore
