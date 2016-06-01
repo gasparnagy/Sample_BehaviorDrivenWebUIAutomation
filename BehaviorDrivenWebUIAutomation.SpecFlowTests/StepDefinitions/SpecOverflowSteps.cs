@@ -1,5 +1,6 @@
 ﻿using System;
 using BehaviorDrivenWebUIAutomation.SpecFlowTests.Support;
+using Coypu;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;

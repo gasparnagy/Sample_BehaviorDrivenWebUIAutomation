@@ -13,29 +13,45 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Support
 {
     public class SeleniumContext : IDisposable
     {
+        private IWebDriver driver;
         public string AppName { get; private set; }
         public string BaseURL { get; private set; }
-        public IWebDriver Driver { get; private set; }
+
+        public IWebDriver Driver
+        {
+            get
+            {
+                if (driver == null)
+                    driver = CreateWebDriver();
+                return driver;
+            }
+        }
 
         public SeleniumContext()
         {
             AppName = FeatureContext.Current.FeatureInfo.Title; //HACK: we get the application name from the feature title. Normally you only test one application from a single project
-            Driver = new FirefoxDriver();
             BaseURL = ConfigurationManager.AppSettings[AppName + ".URL"];
-            //verificationErrors = new StringBuilder();
+        }
+
+        private static FirefoxDriver CreateWebDriver()
+        {
+            return new FirefoxDriver();
         }
 
         public void Dispose()
         {
             try
             {
-                Driver.Quit();
+                if (driver != null)
+                {
+                    driver.Quit();
+                    driver = null;
+                }
             }
             catch (Exception)
             {
                 // Ignore errors if unable to close the browser
             }
-            //Assert.AreEqual("", verificationErrors.ToString());
         }
     }
 }

@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Coypu, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coypu.2.10.0\lib\net40\Coypu.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="FluentAssertions, Version=4.6.3.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentAssertions.4.6.3\lib\net45\FluentAssertions.dll</HintPath>
       <Private>True</Private>
@@ -93,6 +97,7 @@
     <Compile Include="StepDefinitions\OrbitSteps.cs" />
     <Compile Include="StepDefinitions\StackCloneSteps.cs" />
     <Compile Include="StepDefinitions\SpecOverflowSteps.cs" />
+    <Compile Include="Support\CoypuContext.cs" />
     <Compile Include="Support\SeleniumContext.cs" />
   </ItemGroup>
   <ItemGroup>
