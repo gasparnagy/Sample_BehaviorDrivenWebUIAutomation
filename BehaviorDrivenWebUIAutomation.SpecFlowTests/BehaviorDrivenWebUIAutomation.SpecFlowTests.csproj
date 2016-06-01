@@ -78,6 +78,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Concepts\Button.cs" />
+    <Compile Include="Concepts\ConceptFactory.cs" />
+    <Compile Include="Concepts\IUiConcept.cs" />
+    <Compile Include="Concepts\LocatorConventions.cs" />
+    <Compile Include="Concepts\TextBox.cs" />
     <Compile Include="Features\Orbit.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

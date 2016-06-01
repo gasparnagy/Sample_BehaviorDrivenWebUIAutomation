@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BehaviorDrivenWebUIAutomation.SpecFlowTests.Concepts;
 using BehaviorDrivenWebUIAutomation.SpecFlowTests.Support;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.PageObjects;
 
 namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Pages
 {
@@ -13,23 +13,20 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Pages
     {
         private readonly SeleniumContext seleniumContext;
 
-        public IWebElement UserName { get; set; }
-        public IWebElement Password { get; set; }
-        public IWebElement LoginButton { get; set; }
+        public TextBox UserName { get; set; }
+        public TextBox Password { get; set; }
+        public Button LoginButton { get; set; }
 
         public OrbitLoginPage(SeleniumContext seleniumContext)
         {
             this.seleniumContext = seleniumContext;
-            PageFactory.InitElements(seleniumContext.Driver, this, new OrbitDecorator());
+            ConceptFactory.InitElements(seleniumContext.Driver, this);
         }
 
         public void Login(string userName, string password)
         {
-            UserName.Clear();
-            UserName.SendKeys(userName);
-
-            Password.Clear();
-            Password.SendKeys(password);
+            UserName.FillInWith(userName);
+            Password.FillInWith(password);
 
             LoginButton.Click();
         }
