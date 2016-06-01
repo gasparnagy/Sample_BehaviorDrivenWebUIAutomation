@@ -1,9 +1,16 @@
 ﻿using System;
+using System.Linq;
+using System.Threading;
+using System.Collections.Generic;
 using BehaviorDrivenWebUIAutomation.SpecFlowTests.Support;
 using Coypu;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
 {
