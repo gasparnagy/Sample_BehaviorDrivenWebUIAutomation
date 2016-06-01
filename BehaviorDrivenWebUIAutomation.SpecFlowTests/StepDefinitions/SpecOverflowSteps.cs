@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Collections.Generic;
+using BehaviorDrivenWebUIAutomation.SpecFlowTests.Pages;
 using BehaviorDrivenWebUIAutomation.SpecFlowTests.Support;
 using Coypu;
 using FluentAssertions;
@@ -18,10 +19,12 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
     public class SpecOverflowSteps
     {
         private readonly SeleniumContext seleniumContext;
+        private readonly SpecOverflowAskPage askPage;
 
-        public SpecOverflowSteps(SeleniumContext seleniumContext)
+        public SpecOverflowSteps(SeleniumContext seleniumContext, SpecOverflowAskPage askPage)
         {
             this.seleniumContext = seleniumContext;
+            this.askPage = askPage;
         }
 
         [When(@"I navigate to the home page")]
@@ -56,13 +59,8 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
             // convert the table to an instance of the class with CreateInstance<T>();
             var question = table.CreateInstance<QuestionData>();
 
-            seleniumContext.Driver.Navigate().GoToUrl(seleniumContext.BaseURL + "/");
-            seleniumContext.Driver.FindElement(By.LinkText("Ask Question")).Click();
-            seleniumContext.Driver.FindElement(By.Id("Title")).Clear();
-            seleniumContext.Driver.FindElement(By.Id("Title")).SendKeys(question.Title);
-            seleniumContext.Driver.FindElement(By.Id("Body")).Clear();
-            seleniumContext.Driver.FindElement(By.Id("Body")).SendKeys(question.Body);
-            seleniumContext.Driver.FindElement(By.Id("submitask")).Click();
+            askPage.GoTo();
+            askPage.Ask(question.Title, question.Body);
         }
 
         [Then(@"the question should appear at the end of the question list as")]
