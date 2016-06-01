@@ -6,7 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
+using OpenQA.Selenium.PhantomJS;
 using TechTalk.SpecFlow;
 
 namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Support
@@ -33,8 +36,20 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Support
             BaseURL = ConfigurationManager.AppSettings[AppName + ".URL"];
         }
 
-        private static FirefoxDriver CreateWebDriver()
+        private static IWebDriver CreateWebDriver()
         {
+            switch ((ConfigurationManager.AppSettings["Browser"] ?? "Firefox").ToLowerInvariant())
+            {
+                case "firefox":
+                    return new FirefoxDriver();
+                case "ie":
+                    return new InternetExplorerDriver();
+                case "chrome":
+                    return new ChromeDriver();
+                case "phantomjs":
+                    return new PhantomJSDriver();
+            }
+
             return new FirefoxDriver();
         }
 
