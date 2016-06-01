@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading;
 using System.Collections.Generic;
+using BehaviorDrivenWebUIAutomation.SpecFlowTests.Pages;
 using BehaviorDrivenWebUIAutomation.SpecFlowTests.Support;
 using Coypu;
 using FluentAssertions;
@@ -18,10 +19,12 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
     public class OrbitSteps
     {
         private readonly SeleniumContext seleniumContext;
+        private readonly OrbitLoginPage loginPage;
 
-        public OrbitSteps(SeleniumContext seleniumContext)
+        public OrbitSteps(SeleniumContext seleniumContext, OrbitLoginPage loginPage)
         {
             this.seleniumContext = seleniumContext;
+            this.loginPage = loginPage;
         }
 
         [When(@"I navigate to the home page")]
@@ -44,18 +47,13 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.StepDefinitions
         [Given(@"I am on the login page")]
         public void GivenIAmOnTheLoginPage()
         {
-            seleniumContext.Driver.Navigate().GoToUrl(seleniumContext.BaseURL + "/GuestsDefault.aspx");
-            seleniumContext.Driver.FindElement(By.CssSelector("span.rmText")).Click();
+            loginPage.GoTo();
         }
 
         [When(@"I am logged in as user '(.*)' with password '(.*)'")]
         public void WhenIAmLoggedInAsUserWithPassword(string userName, string password)
         {
-            seleniumContext.Driver.FindElement(By.Id("ctl00_Orbit_Content_UserNameTextBox")).Clear();
-            seleniumContext.Driver.FindElement(By.Id("ctl00_Orbit_Content_UserNameTextBox")).SendKeys(userName);
-            seleniumContext.Driver.FindElement(By.Id("ctl00_Orbit_Content_PasswordTextBox")).Clear();
-            seleniumContext.Driver.FindElement(By.Id("ctl00_Orbit_Content_PasswordTextBox")).SendKeys(password);
-            seleniumContext.Driver.FindElement(By.Name("ctl00$Orbit_Content$ctl04")).Click();
+            loginPage.Login(userName, password);
         }
 
         [Then(@"there should be a login error displayed: '(.*)'")]
