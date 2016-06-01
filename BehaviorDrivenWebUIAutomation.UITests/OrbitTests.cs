@@ -85,9 +85,9 @@ namespace BehaviorDrivenWebUIAutomation.UITests
             new Actions(driver).MoveToElement(menu.FindElement(By.LinkText("New Order"))).Build().Perform();
             Thread.Sleep(100);
             new Actions(driver).MoveToElement(menu.FindElement(By.LinkText("GenericDropDown_A"))).Click().Build().Perform();
-
+            Thread.Sleep(500);
             new SelectElement(driver.FindElement(By.Id("ctl00_Orbit_Content_Orderdetails1_CustomerDropDown"))).SelectByText("ARD");
-            driver.FindElement(By.CssSelector("option[value=\"f5f88a29-45c9-4686-b517-f384b7bdc6ef\"]")).Click();
+            //driver.FindElement(By.CssSelector("option[value=\"f5f88a29-45c9-4686-b517-f384b7bdc6ef\"]")).Click();
             new SelectElement(driver.FindElement(By.Id("ctl00_Orbit_Content_Orderdetails1_VenueList"))).SelectByText("Kitzbühel");
             driver.FindElement(By.CssSelector("option[value=\"Kitzbühel\"]")).Click();
             driver.FindElement(By.Id("ctl00_Orbit_Content_Orderdetails1_OrderListRepeater_ctl00_CurrentStateOrderControl_FieldDefinitionRepeater_ctl00_OrderControl_FieldControlHolder_ctl06_ValueTextBox_ValueTextBox")).Clear();
