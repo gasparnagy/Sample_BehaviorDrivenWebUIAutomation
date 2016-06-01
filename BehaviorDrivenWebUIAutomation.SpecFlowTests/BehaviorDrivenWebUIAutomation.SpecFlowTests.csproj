@@ -80,9 +80,11 @@
   <ItemGroup>
     <Compile Include="Concepts\Button.cs" />
     <Compile Include="Concepts\ConceptFactory.cs" />
+    <Compile Include="Concepts\ContainerConcept.cs" />
     <Compile Include="Concepts\IUiConcept.cs" />
     <Compile Include="Concepts\LocatorConventions.cs" />
     <Compile Include="Concepts\Menu.cs" />
+    <Compile Include="Concepts\Page.cs" />
     <Compile Include="Concepts\RadioButtons.cs" />
     <Compile Include="Concepts\TextBox.cs" />
     <Compile Include="Concepts\WebDriverExtensions.cs" />
