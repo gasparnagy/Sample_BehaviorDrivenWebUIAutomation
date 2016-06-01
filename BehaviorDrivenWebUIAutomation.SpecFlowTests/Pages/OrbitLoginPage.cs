@@ -19,7 +19,7 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Pages
         [FindsBy(How = How.Custom, CustomFinderType = typeof(OrbitTableFieldLocator))]
         public IWebElement Password { get; set; }
 
-        [FindsBy(How = How.Name, Using = "ctl00$Orbit_Content$ctl04")]
+        [FindsBy(How = How.Custom, CustomFinderType = typeof(OrbitButtonLocator))]
         public IWebElement LoginButton { get; set; }
 
         public OrbitLoginPage(SeleniumContext seleniumContext)
