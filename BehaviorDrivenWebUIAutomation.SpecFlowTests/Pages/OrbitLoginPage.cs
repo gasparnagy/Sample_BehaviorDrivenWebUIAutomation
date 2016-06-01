@@ -13,10 +13,10 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Pages
     {
         private readonly SeleniumContext seleniumContext;
 
-        [FindsBy(How = How.Id, Using = "ctl00_Orbit_Content_UserNameTextBox")]
+        [FindsBy(How = How.Custom, CustomFinderType = typeof(OrbitTableFieldLocator))]
         public IWebElement UserName { get; set; }
 
-        [FindsBy(How = How.Id, Using = "ctl00_Orbit_Content_PasswordTextBox")]
+        [FindsBy(How = How.Custom, CustomFinderType = typeof(OrbitTableFieldLocator))]
         public IWebElement Password { get; set; }
 
         [FindsBy(How = How.Name, Using = "ctl00$Orbit_Content$ctl04")]
