@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -16,10 +15,14 @@ namespace BehaviorDrivenWebUIAutomation.SpecFlowTests.Concepts
             this.elementLocator = elementLocator;
         }
 
+        protected IWebElement InputElement
+        {
+            get { return elementLocator.LocateElement(LocatorConventions.GetLocators(key)); }
+        }
+
         public void Click()
         {
-            //TODO: implement "click" on button concept!
-            throw new NotImplementedException();
+            InputElement.Click();
         }
     }
 }
